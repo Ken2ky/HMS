@@ -1,3 +1,4 @@
+import 'package:deadend/home.dart';
 import 'package:flutter/material.dart';
 
 class Complaint extends StatelessWidget {
@@ -10,7 +11,7 @@ class Complaint extends StatelessWidget {
     final h = size.height;
 
     final title = DropdownButtonFormField<String>(
-      items: <String>['Electric', 'Plumbing', 'Carpentry'].map((String value) {
+      items: <String>['Electric', 'Plumbing', 'Carpentry','Animal Issues'].map((String value) {
         return DropdownMenuItem<String>(
           value: value,
           child: Text(value),
@@ -50,6 +51,26 @@ class Complaint extends StatelessWidget {
         ),
       ),
     );
+    final submit=ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) =>const Home()));
+                },
+                style: ButtonStyle(
+                    backgroundColor:
+                        const MaterialStatePropertyAll(Colors.transparent),
+                    minimumSize:
+                        MaterialStatePropertyAll(Size(double.infinity, h*0.06)),
+                    side:const MaterialStatePropertyAll(BorderSide(color: Colors.white)),
+                    shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ))
+                    ),
+
+                child: Text(
+                  'Submit',
+                  style: TextStyle(color: Colors.white,fontSize: h*0.03),
+                  )
+                );
     return Scaffold(
         backgroundColor: const Color.fromRGBO(51, 51, 51, 0.9),
         body: SingleChildScrollView(
@@ -91,6 +112,10 @@ class Complaint extends StatelessWidget {
               Padding(
                 padding: EdgeInsets.fromLTRB(w * 0.1, h * 0.04, w * 0.1, 0),
                 child: body,
+              ),
+              Padding(
+                padding: EdgeInsets.fromLTRB(w * 0.1, h * 0.04, w * 0.1, 0),
+                child: submit,
               ),
             ],
           ),

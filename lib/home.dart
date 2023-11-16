@@ -10,7 +10,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  final List<String> filters= const['All','Recent','Pending','Completed'];
+  final List<String> filters= const['Completed','All','Recent','Pending'];
   final List<Widget> issues=[];
   @override
   Widget build(BuildContext context) {
@@ -37,7 +37,7 @@ class _HomeState extends State<Home> {
                   scrollDirection: Axis.horizontal,
                   itemBuilder: (context,index){
                     return Chip(label: Text(filters[index]));
-                  }, 
+                  },   
                 ),
               ),
               SizedBox(

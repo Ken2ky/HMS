@@ -90,7 +90,7 @@ class _DetailsState extends State<Details>{
                     ),
 
                 child: Text(
-                  'Get Started',
+                  'Submit',
                   style: TextStyle(color: Colors.white,fontSize: h*0.03),
                   )
                 );
