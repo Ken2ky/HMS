@@ -1,15 +1,21 @@
 import 'package:deadend/home.dart';
 import 'package:flutter/material.dart';
 
-class Complaint extends StatelessWidget {
+class Complaint extends StatefulWidget {
   const Complaint({super.key});
 
+  @override
+  State<Complaint> createState() => _ComplaintState();
+}
+
+class _ComplaintState extends State<Complaint> {
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final w = size.width;
     final h = size.height;
-
+    final TextEditingController tit=new TextEditingController();
+    final TextEditingController bod=new TextEditingController();
     final title = DropdownButtonFormField<String>(
       items: <String>['Electric', 'Plumbing', 'Carpentry','Animal Issues'].map((String value) {
         return DropdownMenuItem<String>(
@@ -30,11 +36,14 @@ class Complaint extends StatelessWidget {
           borderSide: const BorderSide(color: Colors.white),
         ),
       ),
+      onSaved: (value){
+        tit.text=value!;
+      },
     );
     final body = TextFormField(
       autofocus: false,
       keyboardType: TextInputType.multiline,
-      textInputAction: TextInputAction.next,
+      textInputAction: TextInputAction.done,
       decoration: InputDecoration(
         prefixIcon: const Icon(Icons.person, color: Colors.white),
         contentPadding:
@@ -50,9 +59,14 @@ class Complaint extends StatelessWidget {
           borderSide: const BorderSide(color: Colors.white),
         ),
       ),
+      onSaved: (value){
+        bod.text=value!;
+      },
     );
     final submit=ElevatedButton(
                 onPressed: () {
+                  print('/n/ buitch ${bod.text}');
+                  issues.add(Issue(title: tit.text, description: bod.text));
                   Navigator.push(context, MaterialPageRoute(builder: (context) =>const Home()));
                 },
                 style: ButtonStyle(

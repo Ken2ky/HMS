@@ -15,6 +15,9 @@ class _DetailsState extends State<Details>{
     final size=MediaQuery.of(context).size;
     final w=size.width;
     final h=size.height;
+    final TextEditingController name =new TextEditingController();
+    final TextEditingController num =new TextEditingController();
+    final TextEditingController hostel =new TextEditingController();
 
     final fullNameField= TextFormField(
       autofocus: false,
@@ -33,6 +36,9 @@ class _DetailsState extends State<Details>{
           borderSide: const BorderSide(color: Colors.white),
         ),
       ),
+      onSaved: (value){
+        name.text=value!;
+      },
     );
     final mobileField= TextFormField(
       autofocus: false,
@@ -52,6 +58,9 @@ class _DetailsState extends State<Details>{
           borderSide: const BorderSide(color: Colors.white),
         ),
       ),
+      onSaved: (value){
+        num.text=value!;
+      },
     );
     final title = DropdownButtonFormField<String>(
       items: <String>['Budh','Gandhi','Ganga','Gautam','Krishna','Meera','Ram','Shankar','Viswakarma', 'Valmiki', 'Vyas'].map((String value) {
@@ -73,6 +82,9 @@ class _DetailsState extends State<Details>{
           borderSide: const BorderSide(color: Colors.white),
         ),
       ),
+      onSaved: (value){
+        hostel.text=value!;
+      },
     );
     final submit=ElevatedButton(
                 onPressed: () {

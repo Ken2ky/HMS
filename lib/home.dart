@@ -2,6 +2,8 @@ import 'package:deadend/complaint.dart';
 import 'package:deadend/navbar.dart';
 import 'package:flutter/material.dart';
 
+final List<Widget> issues=[];
+
 class Home extends StatefulWidget {
   const Home({super.key});
   @override
@@ -11,7 +13,6 @@ class Home extends StatefulWidget {
 class _HomeState extends State<Home> {
 
   final List<String> filters= const['Completed','All','Recent','Pending'];
-  final List<Widget> issues=[];
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
@@ -41,7 +42,7 @@ class _HomeState extends State<Home> {
                 ),
               ),
               SizedBox(
-                height:200,
+                height:h,
                 child: ListView.builder(
                   itemCount: issues.length,
                   itemBuilder: (context,index){
@@ -71,11 +72,14 @@ class Issue extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return const Card(
+    final tit=title;
+    final desc=description;
+    print('${tit} \n\n ${desc} ');
+    return  Card(
       color: Colors.white,
       child: Text(
         'Category \n\n Lorem ipsum dolor sit amet. Sit galisum exercitationem et facilis rerum ea quam ipsam ut saepe autem ex voluptates dolor. Sit nesciunt dolores qui vero dolor aut cumque ipsum qui atque architecto',
-        style: TextStyle(fontSize: 15),
+        style: const TextStyle(fontSize: 15,color: Colors.black),
       ),
     );
   }
