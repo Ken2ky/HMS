@@ -1,3 +1,4 @@
+import 'package:deadend/home.dart';
 import 'package:flutter/material.dart';
 
 
@@ -52,6 +53,47 @@ class _DetailsState extends State<Details>{
         ),
       ),
     );
+    final title = DropdownButtonFormField<String>(
+      items: <String>['Budh','Gandhi','Ganga','Gautam','Krishna','Meera','Ram','Shankar','Viswakarma', 'Valmiki', 'Vyas'].map((String value) {
+        return DropdownMenuItem<String>(
+          value: value,
+          child: Text(value),
+        );
+      }).toList(),
+      onChanged: (_) {},
+      decoration: InputDecoration(
+        hintText: "Title",
+        hintStyle: TextStyle(color: Colors.white),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(color: Colors.white),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(color: Colors.white),
+        ),
+      ),
+    );
+    final submit=ElevatedButton(
+                onPressed: () {
+                  Navigator.push(context, MaterialPageRoute(builder: (context) =>const Home()));
+                },
+                style: ButtonStyle(
+                    backgroundColor:
+                        const MaterialStatePropertyAll(Colors.transparent),
+                    minimumSize:
+                        MaterialStatePropertyAll(Size(double.infinity, h*0.06)),
+                    side:const MaterialStatePropertyAll(BorderSide(color: Colors.white)),
+                    shape: MaterialStatePropertyAll(RoundedRectangleBorder(
+                      borderRadius: BorderRadius.circular(8),
+                    ))
+                    ),
+
+                child: Text(
+                  'Get Started',
+                  style: TextStyle(color: Colors.white,fontSize: h*0.03),
+                  )
+                );
     return Scaffold(
       backgroundColor:  const Color.fromRGBO(51, 51, 51, 0.9),
       body: SingleChildScrollView(
@@ -88,6 +130,14 @@ class _DetailsState extends State<Details>{
             Padding(
               padding: EdgeInsets.fromLTRB(w*0.1,h*0.04, w*0.1, 0),
               child: mobileField,
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(w*0.1,h*0.04, w*0.1, 0),
+              child: title,
+            ),
+            Padding(
+              padding: EdgeInsets.fromLTRB(w*0.1,h*0.04, w*0.1, 0),
+              child: submit,
             ),
           ],
         ),

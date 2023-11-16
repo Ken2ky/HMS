@@ -1,3 +1,4 @@
+import 'package:deadend/complaint.dart';
 import 'package:deadend/navbar.dart';
 import 'package:flutter/material.dart';
 
@@ -9,7 +10,7 @@ class Home extends StatefulWidget {
 
 class _HomeState extends State<Home> {
 
-  final List<String> filters= const['Recent','Pending','Completed'];
+  final List<String> filters= const['All','Recent','Pending','Completed'];
   final List<Widget> issues=[];
   @override
   Widget build(BuildContext context) {
@@ -53,7 +54,9 @@ class _HomeState extends State<Home> {
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context, MaterialPageRoute(builder: (context) =>const Complaint()));
+        },
         backgroundColor: const Color.fromRGBO(221, 17, 85, 1),
         child: const Icon(Icons.add),
       ),
