@@ -9,13 +9,13 @@ class Complaint extends StatefulWidget {
 }
 
 class _ComplaintState extends State<Complaint> {
+  final TextEditingController tit=new TextEditingController();
+  final TextEditingController bod=new TextEditingController();
   @override
   Widget build(BuildContext context) {
     final size = MediaQuery.of(context).size;
     final w = size.width;
     final h = size.height;
-    final TextEditingController tit=new TextEditingController();
-    final TextEditingController bod=new TextEditingController();
     final title = DropdownButtonFormField<String>(
       items: <String>['Electric', 'Plumbing', 'Carpentry','Animal Issues'].map((String value) {
         return DropdownMenuItem<String>(
@@ -43,6 +43,9 @@ class _ComplaintState extends State<Complaint> {
     final body = TextFormField(
       autofocus: false,
       keyboardType: TextInputType.multiline,
+      onSaved: (value){
+        bod.text=value!;
+      },
       textInputAction: TextInputAction.done,
       decoration: InputDecoration(
         prefixIcon: const Icon(Icons.person, color: Colors.white),
@@ -59,13 +62,11 @@ class _ComplaintState extends State<Complaint> {
           borderSide: const BorderSide(color: Colors.white),
         ),
       ),
-      onSaved: (value){
-        bod.text=value!;
-      },
     );
     final submit=ElevatedButton(
                 onPressed: () {
                   print('/n/ buitch ${bod.text}');
+                  print(bod.text.length);
                   issues.add(Issue(title: tit.text, description: bod.text));
                   Navigator.push(context, MaterialPageRoute(builder: (context) =>const Home()));
                 },
