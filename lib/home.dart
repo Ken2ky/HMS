@@ -98,12 +98,12 @@ class Issue extends StatelessWidget {
       child: Column(
         children: [
           Text(
-            '${tit}\n\n ${desc}',
+            '$tit\n\n $desc',
             style: TextStyle(fontSize: 15, color: Colors.black,),
             textAlign: TextAlign.left ,
           ),
           ElevatedButton(onPressed: () {
-            
+
           }, 
           child: Text("Resolved"))
         ],

@@ -75,6 +75,7 @@ class _ComplaintState extends State<Complaint> {
           }
 
           issues.add(Issue(title: tit.text.toString(), description: bod.text));
+          pending.add(Issue(title: tit.text.toString(), description: bod.text));
 
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => const Home()));
