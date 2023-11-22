@@ -29,12 +29,6 @@ class NavBar extends StatelessWidget {
             },
           ),
           ListTile(
-            title: const Text("Settings"),
-            onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) =>const Settings()));
-            },
-          ),
-          ListTile(
             title: const Text("Contact Us"),
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) =>const ContactUs()));
