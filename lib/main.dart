@@ -1,6 +1,7 @@
 import 'package:deadend/details.dart';
 import 'package:deadend/getstarted.dart';
 import 'package:deadend/home.dart';
+import 'package:deadend/login.dart';
 import 'package:flutter/material.dart';
 
 void main(){

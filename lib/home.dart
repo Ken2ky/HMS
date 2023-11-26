@@ -3,7 +3,7 @@ import 'package:deadend/navbar.dart';
 import 'package:flutter/material.dart';
 
 final List<Widget> issues = [];
-final List<Widget> pending = [Issue(title: "Hi", description: "Hello")];
+final List<Widget> pending = [];
 final List<Widget> completed = [];
 final List<List<Widget>> filter = [issues, pending, completed];
 
@@ -84,15 +84,20 @@ class _HomeState extends State<Home> {
   }
 }
 
-class Issue extends StatelessWidget {
+class Issue extends StatefulWidget {
   final String title;
   final String description;
   const Issue({required this.title, required this.description, super.key});
 
   @override
+  State<Issue> createState() => _IssueState();
+}
+
+class _IssueState extends State<Issue> {
+  @override
   Widget build(BuildContext context) {
-    final tit = title;
-    final desc = description;
+    final tit = widget.title;
+    final desc = widget.description;
     return Card(
       color: Colors.white,
       child: Column(
@@ -103,7 +108,12 @@ class Issue extends StatelessWidget {
             textAlign: TextAlign.left ,
           ),
           ElevatedButton(onPressed: () {
-
+            setState(() {
+              //Find a way to remove data from issues and pending and move it to completed
+            issues.remove(widget);
+            pending.remove(widget);
+            completed.add(Issue(title: tit, description: desc));
+            });
           }, 
           child: Text("Resolved"))
         ],
