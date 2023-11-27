@@ -1,3 +1,4 @@
+import 'package:deadend/animalissues.dart';
 import 'package:deadend/home.dart';
 import 'package:flutter/material.dart';
 
@@ -73,13 +74,20 @@ class _ComplaintState extends State<Complaint> {
             print('Body: ${bod.text}');
             _formKey.currentState!.reset();
           }
-
-          issues.add(Issue(title: tit.text.toString(), description: bod.text));
-          pending.add(Issue(title: tit.text.toString(), description: bod.text));
-
+          if(tit.text=='Animal Issues') {
+            animalissues.add(AnimalIssue(title: tit.text.toString(), description: bod.text));
+            Navigator.push(
+              context, MaterialPageRoute(builder: (context) => const AnimalIssues()));
+        
+          }
+          else{
+          issues.add(Issue(title: tit.text.toString(), description: bod.text,issue: 0));
+          pending.add(Issue(title: tit.text.toString(), description: bod.text,issue:0));
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => const Home()));
-        },
+          }
+          },
+ 
         style: ButtonStyle(
             backgroundColor: const MaterialStatePropertyAll(Colors.transparent),
             minimumSize:

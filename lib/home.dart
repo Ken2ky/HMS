@@ -3,8 +3,10 @@ import 'package:deadend/navbar.dart';
 import 'package:flutter/material.dart';
 
 final List<Widget> issues = [];
+final List<Widget> animalissues = [];
 final List<Widget> pending = [];
 final List<Widget> completed = [];
+
 final List<List<Widget>> filter = [issues, pending, completed];
 
 class Home extends StatefulWidget {
@@ -87,7 +89,8 @@ class _HomeState extends State<Home> {
 class Issue extends StatefulWidget {
   final String title;
   final String description;
-  const Issue({required this.title, required this.description, super.key});
+  final int issue;
+  const Issue({required this.title, required this.description,required this.issue, super.key});
 
   @override
   State<Issue> createState() => _IssueState();
@@ -103,7 +106,7 @@ class _IssueState extends State<Issue> {
       child: Column(
         children: [
           Text(
-            '$tit\n\n $desc',
+            'Issue\n$tit\n\n $desc',
             style: TextStyle(fontSize: 15, color: Colors.black,),
             textAlign: TextAlign.left ,
           ),
@@ -112,7 +115,7 @@ class _IssueState extends State<Issue> {
               //Find a way to remove data from issues and pending and move it to completed
             issues.remove(widget);
             pending.remove(widget);
-            completed.add(Issue(title: tit, description: desc));
+            completed.add(Issue(title: tit, description: desc,issue: 0));
             });
           }, 
           child: Text("Resolved"))

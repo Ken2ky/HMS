@@ -1,3 +1,5 @@
+import 'package:deadend/complaint.dart';
+import 'package:deadend/home.dart';
 import 'package:deadend/navbar.dart';
 import 'package:flutter/material.dart';
 
@@ -25,20 +27,26 @@ class _AnimalIssuesState extends State<AnimalIssues> {
       body: SingleChildScrollView(
         child: Padding(
           padding: EdgeInsets.all(w * 0.05),
-          child: const Column(
+          child:  Column(
             children: [
-              Issue(),
-              Issue(),
-              Issue(),
-              Issue(),
-              Issue(),
-              Issue(),
+              SizedBox(
+                height: h,
+                child: ListView.builder(
+                  itemCount: animalissues.length,
+                  itemBuilder: (context, index) {
+                    return animalissues[index];
+                  },
+                ),
+              ),
             ],
           ),
         ),
       ),
       floatingActionButton: FloatingActionButton(
-        onPressed: () {},
+        onPressed: () {
+          Navigator.push(context,
+              MaterialPageRoute(builder: (context) => const Complaint()));
+        },
         backgroundColor: const Color.fromRGBO(221, 17, 85, 1),
         child: const Icon(Icons.add),
       ),
@@ -46,16 +54,29 @@ class _AnimalIssuesState extends State<AnimalIssues> {
   }
 }
 
-class Issue extends StatelessWidget {
-  const Issue({super.key});
+class AnimalIssue extends StatefulWidget {
+  final String title;
+  final String description;
+  const AnimalIssue({required this.title, required this.description, super.key});
 
   @override
+    State<AnimalIssue> createState() => _AnimalIssueState();
+}
+class _AnimalIssueState extends State<AnimalIssue> {
+  @override
   Widget build(BuildContext context) {
-    return const Card(
+    final tit = widget.title;
+    final desc = widget.description;
+    return Card(
       color: Colors.white,
-      child: Text(
-        'Category \n\n Lorem ipsum dolor sit amet. Sit galisum exercitationem et facilis rerum ea quam ipsam ut saepe autem ex voluptates dolor. Sit nesciunt dolores qui vero dolor aut cumque ipsum qui atque architecto',
-        style: TextStyle(fontSize: 15),
+      child: Column(
+        children: [
+          Text(
+            'Issue\n$tit\n\n $desc',
+            style: TextStyle(fontSize: 15, color: Colors.black,),
+            textAlign: TextAlign.left ,
+          ),
+        ],
       ),
     );
   }
