@@ -79,6 +79,7 @@ class _AnimalIssueState extends State<AnimalIssue> {
         SizedBox(
           width: 0.67*w,
           child: Card(
+            elevation: 0,
           color: Color.fromRGBO(74, 73, 73, 1),
           child: Padding(
             padding: const EdgeInsets.all(8.0),
