@@ -19,11 +19,12 @@ class _ComplaintState extends State<Complaint> {
     final w = size.width;
     final h = size.height;
     final title = DropdownButtonFormField<String>(
+      dropdownColor: const Color.fromRGBO(51, 51, 51, 0.9),
       items: <String>['Electric', 'Plumbing', 'Carpentry', 'Animal Issues']
           .map((String value) {
         return DropdownMenuItem<String>(
           value: value,
-          child: Text(value),
+          child: Text(value, style: TextStyle(color: Colors.white),),
         );
       }).toList(),
       onChanged: (_) {},
@@ -45,6 +46,7 @@ class _ComplaintState extends State<Complaint> {
     );
     final body = TextFormField(
       autofocus: false,
+      style: TextStyle(color: Colors.white),
       keyboardType: TextInputType.multiline,
       onSaved: (value) {
         bod.text = value!;
@@ -81,8 +83,8 @@ class _ComplaintState extends State<Complaint> {
         
           }
           else{
-          issues.add(Issue(title: tit.text.toString(), description: bod.text,issue: 0));
-          pending.add(Issue(title: tit.text.toString(), description: bod.text,issue:0));
+          issues.add(Issue(title: tit.text, description: bod.text,issue:0));
+          pending.add(Issue(title: tit.text, description: bod.text,issue:0));
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => const Home()));
           }

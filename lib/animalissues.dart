@@ -30,7 +30,7 @@ class _AnimalIssuesState extends State<AnimalIssues> {
           child:  Column(
             children: [
               SizedBox(
-                height: h,
+                height: h-100,
                 child: ListView.builder(
                   itemCount: animalissues.length,
                   itemBuilder: (context, index) {
@@ -63,20 +63,44 @@ class AnimalIssue extends StatefulWidget {
     State<AnimalIssue> createState() => _AnimalIssueState();
 }
 class _AnimalIssueState extends State<AnimalIssue> {
+  
   @override
   Widget build(BuildContext context) {
     final tit = widget.title;
     final desc = widget.description;
+    final size = MediaQuery.of(context).size;
+    final w = size.width;
+    final h = size.height;
     return Card(
-      color: Colors.white,
-      child: Column(
+      color: Color.fromRGBO(74, 73, 73, 1),
+      child: Row(
+        mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
-          Text(
-            'Issue\n$tit\n\n $desc',
+        SizedBox(
+          width: 0.67*w,
+          child: Card(
+          color: Color.fromRGBO(74, 73, 73, 1),
+          child: Padding(
+            padding: const EdgeInsets.all(8.0),
+            child: Text(
+              'Issue\n$tit\n$desc',
+              style: TextStyle(fontSize: 15, color: Colors.white,),
+              textAlign: TextAlign.left ,
+              softWrap: true,
+              ),
+          ),
+              ),
+        ),const Padding(
+        padding: EdgeInsets.all(8.0),
+        child:  Chip(
+          label: Text(
+            'OPEN',
             style: TextStyle(fontSize: 15, color: Colors.black,),
             textAlign: TextAlign.left ,
-          ),
-        ],
+            ),
+        ),
+      )],
+      
       ),
     );
   }

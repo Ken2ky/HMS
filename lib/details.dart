@@ -21,6 +21,7 @@ class _DetailsState extends State<Details> {
     final h = size.height;
     final fullNameField = TextFormField(
       autofocus: false,
+      style: TextStyle(color: Colors.white),
       textInputAction: TextInputAction.next,
       onSaved: (value) {
         name.text = value!;
@@ -43,6 +44,7 @@ class _DetailsState extends State<Details> {
     );
     final mobileField = TextFormField(
       autofocus: false,
+      style: TextStyle(color: Colors.white),
       textInputAction: TextInputAction.next,
       keyboardType: TextInputType.phone,
       decoration: InputDecoration(
@@ -66,6 +68,7 @@ class _DetailsState extends State<Details> {
       },
     );
     final title = DropdownButtonFormField<String>(
+      dropdownColor: const Color.fromRGBO(51, 51, 51, 0.9),
       items: <String>[
         'Budh',
         'Gandhi',
@@ -82,7 +85,7 @@ class _DetailsState extends State<Details> {
       ].map((String value) {
         return DropdownMenuItem<String>(
           value: value,
-          child: Text(value),
+          child: Text(value,style: TextStyle(color: Colors.white),),
         );
       }).toList(),
       onChanged: (_) {},

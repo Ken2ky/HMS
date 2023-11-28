@@ -13,6 +13,12 @@ class ContactUs extends StatelessWidget {
         centerTitle: true,
         backgroundColor: const Color.fromRGBO(4, 139, 168, 0.8),
       ),
+      backgroundColor: Color.fromRGBO(51, 51, 51, 1),
+      body: Column(
+        children: [
+          Card()
+        ],
+      ),
     );
   }
 }

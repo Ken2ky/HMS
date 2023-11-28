@@ -4,7 +4,7 @@ import 'package:deadend/home.dart';
 import 'package:deadend/login.dart';
 import 'package:deadend/settings.dart';
 import 'package:flutter/material.dart';
-int current=0;
+int curr=0;
 class NavBar extends StatefulWidget {
   const NavBar({super.key});
   @override
@@ -28,43 +28,43 @@ class _NavBarState extends State<NavBar> {
               ),
               
           ListTile(
-            title: Text("Home",style: TextStyle(color: current==0?Colors.white:Colors.black)),
-            tileColor: current==0?Color.fromRGBO(51, 51, 51, 1):Colors.white,
+            title: Text("Home",style: TextStyle(color: curr==0?Colors.white:Colors.black)),
+            tileColor: curr==0?Color.fromRGBO(51, 51, 51, 1):Colors.white,
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) =>const Home()));
               setState(() {
-                current=0;
+                curr=0;
               });
             },
             
           ),
           ListTile(
-            title: Text("Animal Issues",style: TextStyle(color: current==1?Colors.white:Colors.black)),
-            tileColor: current==1?Color.fromRGBO(51, 51, 51, 1):Colors.white,
+            title: Text("Animal Issues",style: TextStyle(color: curr==1?Colors.white:Colors.black)),
+            tileColor: curr==1?Color.fromRGBO(51, 51, 51, 1):Colors.white,
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) =>const AnimalIssues()));
               setState(() {
-                current=1;
+                curr=1;
               });
             },
           ),
           ListTile(
-            title: Text("Contact Us",style: TextStyle(color: current==2?Colors.white:Colors.black)),
-            tileColor: current==2?Color.fromRGBO(51, 51, 51, 1):Colors.white,
+            title: Text("Contact Us",style: TextStyle(color: curr==2?Colors.white:Colors.black)),
+            tileColor: curr==2?Color.fromRGBO(51, 51, 51, 1):Colors.white,
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) =>const ContactUs()));
               setState(() {
-                current=2;
+                curr=2;
               });
             },
           ),
           ListTile(
-            title: Text("LogOut",style: TextStyle(color: current==3?Colors.white:Colors.black)),
-            tileColor: current==3?Color.fromRGBO(51, 51, 51, 1):Colors.white,
+            title: Text("LogOut",style: TextStyle(color: curr==3?Colors.white:Colors.black)),
+            tileColor: curr==3?Color.fromRGBO(51, 51, 51, 1):Colors.white,
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) =>const Login()));
               setState(() {
-                current=3;
+                curr=3;
               });
             },
           ),
