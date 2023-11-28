@@ -1,16 +1,16 @@
-import 'package:deadend/animalissues.dart';
 import 'package:deadend/contactus.dart';
-import 'package:deadend/home.dart';
 import 'package:deadend/login.dart';
+import 'package:deadend/sanimalissues.dart';
+import 'package:deadend/shome.dart';
 import 'package:flutter/material.dart';
-int curr=0;
-class NavBar extends StatefulWidget {
-  const NavBar({super.key});
+int currn=0;
+class ServNavBar extends StatefulWidget {
+  const ServNavBar({super.key});
   @override
-  State<NavBar> createState() => _NavBarState();
+  State<ServNavBar> createState() => _ServNavBarState();
 }
 
-class _NavBarState extends State<NavBar> {
+class _ServNavBarState extends State<ServNavBar> {
   @override
   Widget build(BuildContext context) {
     return Drawer(
@@ -27,43 +27,43 @@ class _NavBarState extends State<NavBar> {
               ),
               
           ListTile(
-            title: Text("Home",style: TextStyle(color: curr==0?Colors.white:Colors.black)),
-            tileColor: curr==0?Color.fromRGBO(51, 51, 51, 1):Colors.white,
+            title: Text("Home",style: TextStyle(color: currn==0?Colors.white:Colors.black)),
+            tileColor: currn==0?Color.fromRGBO(51, 51, 51, 1):Colors.white,
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) =>const Home()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) =>const ServHome()));
               setState(() {
-                curr=0;
+                currn=0;
               });
             },
             
           ),
           ListTile(
-            title: Text("Animal Issues",style: TextStyle(color: curr==1?Colors.white:Colors.black)),
-            tileColor: curr==1?Color.fromRGBO(51, 51, 51, 1):Colors.white,
+            title: Text("Animal Issues",style: TextStyle(color: currn==1?Colors.white:Colors.black)),
+            tileColor: currn==1?Color.fromRGBO(51, 51, 51, 1):Colors.white,
             onTap: () {
-              Navigator.push(context, MaterialPageRoute(builder: (context) =>const AnimalIssues()));
+              Navigator.push(context, MaterialPageRoute(builder: (context) =>const ServAnimalIssues()));
               setState(() {
-                curr=1;
+                currn=1;
               });
             },
           ),
           ListTile(
-            title: Text("Contact Us",style: TextStyle(color: curr==2?Colors.white:Colors.black)),
-            tileColor: curr==2?Color.fromRGBO(51, 51, 51, 1):Colors.white,
+            title: Text("Contact Us",style: TextStyle(color: currn==2?Colors.white:Colors.black)),
+            tileColor: currn==2?Color.fromRGBO(51, 51, 51, 1):Colors.white,
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) =>const ContactUs()));
               setState(() {
-                curr=2;
+                currn=2;
               });
             },
           ),
           ListTile(
-            title: Text("LogOut",style: TextStyle(color: curr==3?Colors.white:Colors.black)),
-            tileColor: curr==3?Color.fromRGBO(51, 51, 51, 1):Colors.white,
+            title: Text("LogOut",style: TextStyle(color: currn==3?Colors.white:Colors.black)),
+            tileColor: currn==3?Color.fromRGBO(51, 51, 51, 1):Colors.white,
             onTap: () {
               Navigator.push(context, MaterialPageRoute(builder: (context) =>const Login()));
               setState(() {
-                curr=3;
+                currn=3;
               });
             },
           ),

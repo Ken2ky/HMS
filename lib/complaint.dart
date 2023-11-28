@@ -12,6 +12,7 @@ class Complaint extends StatefulWidget {
 class _ComplaintState extends State<Complaint> {
   final TextEditingController tit = TextEditingController();
   final TextEditingController bod = TextEditingController();
+  final TextEditingController roo = TextEditingController();
   final _formKey = GlobalKey<FormState>();
   @override
   Widget build(BuildContext context) {
@@ -29,7 +30,7 @@ class _ComplaintState extends State<Complaint> {
       }).toList(),
       onChanged: (_) {},
       decoration: InputDecoration(
-        hintText: "Title",
+        hintText: "Hostel",
         hintStyle: TextStyle(color: Colors.white),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
@@ -44,6 +45,30 @@ class _ComplaintState extends State<Complaint> {
         tit.text = value!;
       },
     );
+    final room = TextFormField(
+      autofocus: false,
+      style: TextStyle(color: Colors.white),
+      keyboardType: TextInputType.multiline,
+      onSaved: (value) {
+        roo.text = value!;
+      },
+      textInputAction: TextInputAction.done,
+      decoration: InputDecoration(
+        prefixIcon: const Icon(Icons.person, color: Colors.white),
+        contentPadding:
+            EdgeInsets.fromLTRB(w * 0.01, h * 0.04, w * 0.01, h * 0.004),
+        hintText: "Room Number with Hostel",
+        hintStyle: const TextStyle(color: Colors.white),
+        border: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(color: Colors.white),
+        ),
+        focusedBorder: OutlineInputBorder(
+          borderRadius: BorderRadius.circular(10),
+          borderSide: const BorderSide(color: Colors.white),
+        ),
+      ),
+    );
     final body = TextFormField(
       autofocus: false,
       style: TextStyle(color: Colors.white),
@@ -56,7 +81,7 @@ class _ComplaintState extends State<Complaint> {
         prefixIcon: const Icon(Icons.person, color: Colors.white),
         contentPadding:
             EdgeInsets.fromLTRB(w * 0.01, h * 0.04, w * 0.01, h * 0.004),
-        hintText: "body",
+        hintText: "Description",
         hintStyle: const TextStyle(color: Colors.white),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
@@ -80,11 +105,10 @@ class _ComplaintState extends State<Complaint> {
             animalissues.add(AnimalIssue(title: tit.text.toString(), description: bod.text));
             Navigator.push(
               context, MaterialPageRoute(builder: (context) => const AnimalIssues()));
-        
           }
           else{
-          issues.add(Issue(title: tit.text, description: bod.text,issue:0));
-          pending.add(Issue(title: tit.text, description: bod.text,issue:0));
+          issues.add(Issue(title: tit.text, description: bod.text,issue:0,roomNo: roo.text));
+          pending.add(Issue(title: tit.text, description: bod.text,issue:0,roomNo: roo.text));
           Navigator.push(
               context, MaterialPageRoute(builder: (context) => const Home()));
           }
@@ -144,6 +168,10 @@ class _ComplaintState extends State<Complaint> {
                 Padding(
                   padding: EdgeInsets.fromLTRB(w * 0.1, h * 0.07, w * 0.1, 0),
                   child: title,
+                ),
+                Padding(
+                  padding: EdgeInsets.fromLTRB(w * 0.1, h * 0.04, w * 0.1, 0),
+                  child: room,
                 ),
                 Padding(
                   padding: EdgeInsets.fromLTRB(w * 0.1, h * 0.04, w * 0.1, 0),

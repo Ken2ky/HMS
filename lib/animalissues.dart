@@ -70,7 +70,6 @@ class _AnimalIssueState extends State<AnimalIssue> {
     final desc = widget.description;
     final size = MediaQuery.of(context).size;
     final w = size.width;
-    final h = size.height;
     return Card(
       color: Color.fromRGBO(74, 73, 73, 1),
       child: Row(

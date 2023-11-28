@@ -1,7 +1,4 @@
-import 'package:deadend/details.dart';
 import 'package:deadend/getstarted.dart';
-import 'package:deadend/home.dart';
-import 'package:deadend/login.dart';
 import 'package:flutter/material.dart';
 
 void main(){
@@ -12,8 +9,8 @@ class MyApp extends StatelessWidget{
   const MyApp({super.key});
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      home: Details(),
+    return const MaterialApp(
+      home: GetStarted(),
     );
   }
 }

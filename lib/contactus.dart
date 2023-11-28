@@ -106,7 +106,7 @@ class ContactUs extends StatelessWidget {
                       style: TextStyle(fontSize: 20),
                       children:  <TextSpan>[
                         TextSpan(
-                          text: 'feedback@deadend@gmail.com',
+                          text: 'feedback.deadend@gmail.com',
                           style: TextStyle(color: Colors.black),
                         ),
                         

@@ -1,15 +1,15 @@
-import 'package:deadend/home.dart';
-import 'package:deadend/navbar.dart';
+import 'package:deadend/shome.dart';
+import 'package:deadend/snavbar.dart';
 import 'package:flutter/material.dart';
 
-class Details extends StatefulWidget {
-  const Details({super.key});
+class Servdetails extends StatefulWidget {
+  const Servdetails({super.key});
 
   @override
-  _DetailsState createState() => _DetailsState();
+  _ServdetailsState createState() => _ServdetailsState();
 }
 
-class _DetailsState extends State<Details> {
+class _ServdetailsState extends State<Servdetails> {
   
     final TextEditingController name = TextEditingController();
     final TextEditingController num = TextEditingController();
@@ -71,18 +71,10 @@ class _DetailsState extends State<Details> {
     final title = DropdownButtonFormField<String>(
       dropdownColor: const Color.fromRGBO(51, 51, 51, 0.9),
       items: <String>[
-        'Budh',
-        'Gandhi',
-        'Ganga',
-        'Gautam',
-        'Krishna',
-        'Malviya',
-        'Meera',
-        'Ram',
-        'Shankar',
-        'Viswakarma',
-        'Valmiki',
-        'Vyas'
+        'Electrician',
+        'Plumber',
+        'Carpenter',
+        'Animal/Pest Control'
       ].map((String value) {
         return DropdownMenuItem<String>(
           value: value,
@@ -110,8 +102,8 @@ class _DetailsState extends State<Details> {
         onPressed: () {
           if (_formKey.currentState!.validate()) {
             _formKey.currentState!.save();
-            curr=0;
-          Navigator.push(context, MaterialPageRoute(builder: (context) => const Home()));
+            currn=0;
+          Navigator.push(context, MaterialPageRoute(builder: (context) => const ServHome()));
           }
         },
         style: ButtonStyle(
@@ -168,7 +160,7 @@ class _DetailsState extends State<Details> {
                 Container(
                   padding: EdgeInsets.fromLTRB(w * 0.1, 0, w * 0.1, 0),
                   alignment: Alignment.centerLeft,
-                  child: Text('Please Fill Your Details Below.',
+                  child: Text('Select your Service',
                       textAlign: TextAlign.left,
                       style:
                           TextStyle(color: Colors.white, fontSize: h * 0.019)),
