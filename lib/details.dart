@@ -91,7 +91,7 @@ class _DetailsState extends State<Details> {
       }).toList(),
       onChanged: (_) {},
       decoration: InputDecoration(
-        hintText: "Title",
+        hintText: "Choose Your Hostel",
         hintStyle: TextStyle(color: Colors.white),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),

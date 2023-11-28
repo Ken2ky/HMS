@@ -1,4 +1,5 @@
 import 'package:deadend/details.dart';
+import 'package:deadend/home.dart';
 import 'package:deadend/sdetails.dart';
 import 'package:flutter/material.dart';
 
@@ -39,6 +40,7 @@ class Login extends StatelessWidget{
             padding: EdgeInsets.fromLTRB(w*0.1, h*0.025, w*0.1, 0),
             child: ElevatedButton(
                 onPressed: () {
+                  who=0;
                   Navigator.push(context, MaterialPageRoute(builder: (context) =>const Details()));
                 },
                 style: ButtonStyle(
@@ -60,6 +62,7 @@ class Login extends StatelessWidget{
             padding: EdgeInsets.fromLTRB(w*0.1, h*0.08, w*0.1, 100),
             child: ElevatedButton(
                 onPressed: () {
+                  who=1;
                   Navigator.push(context, MaterialPageRoute(builder: (context) =>const Servdetails()));
                 },
                 style: ButtonStyle(

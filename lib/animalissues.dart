@@ -83,7 +83,7 @@ class _AnimalIssueState extends State<AnimalIssue> {
           child: Padding(
             padding: const EdgeInsets.all(8.0),
             child: Text(
-              'Issue\n$tit\n$desc',
+              '$desc',
               style: TextStyle(fontSize: 15, color: Colors.white,),
               textAlign: TextAlign.left ,
               softWrap: true,
@@ -93,9 +93,10 @@ class _AnimalIssueState extends State<AnimalIssue> {
         ),const Padding(
         padding: EdgeInsets.all(8.0),
         child:  Chip(
+          backgroundColor: (Color.fromRGBO(221, 17, 85, 1)),
           label: Text(
             'OPEN',
-            style: TextStyle(fontSize: 15, color: Colors.black,),
+            style: TextStyle(fontSize: 12, color: Color.fromRGBO(245, 245, 245, 1),),
             textAlign: TextAlign.left ,
             ),
         ),

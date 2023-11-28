@@ -1,5 +1,6 @@
 import 'package:deadend/animalissues.dart';
 import 'package:deadend/home.dart';
+import 'package:deadend/navbar.dart';
 import 'package:flutter/material.dart';
 
 class Complaint extends StatefulWidget {
@@ -30,7 +31,7 @@ class _ComplaintState extends State<Complaint> {
       }).toList(),
       onChanged: (_) {},
       decoration: InputDecoration(
-        hintText: "Hostel",
+        hintText: "Title",
         hintStyle: TextStyle(color: Colors.white),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
@@ -57,7 +58,7 @@ class _ComplaintState extends State<Complaint> {
         prefixIcon: const Icon(Icons.person, color: Colors.white),
         contentPadding:
             EdgeInsets.fromLTRB(w * 0.01, h * 0.04, w * 0.01, h * 0.004),
-        hintText: "Room Number with Hostel",
+        hintText: "Room No with Hostel (Ex: VK001)",
         hintStyle: const TextStyle(color: Colors.white),
         border: OutlineInputBorder(
           borderRadius: BorderRadius.circular(10),
@@ -102,6 +103,7 @@ class _ComplaintState extends State<Complaint> {
             _formKey.currentState!.reset();
           }
           if(tit.text=='Animal Issues') {
+            curr=1;
             animalissues.add(AnimalIssue(title: tit.text.toString(), description: bod.text));
             Navigator.push(
               context, MaterialPageRoute(builder: (context) => const AnimalIssues()));

@@ -31,7 +31,7 @@ class ContactUs extends StatelessWidget {
                     style: TextStyle(fontSize: 18),
                     children:  <TextSpan>[
                       TextSpan(
-                        text: 'We want to hear from  ',
+                        text: 'We want to hear from ',
                         style: TextStyle(color: Colors.white),
                       ),
                       TextSpan(
@@ -43,7 +43,7 @@ class ContactUs extends StatelessWidget {
                         style: TextStyle(color: Color.fromRGBO(161, 239, 139, 1)),
                       ),
                       TextSpan(
-                        text: 'below  ',
+                        text: 'below.  ',
                         style: TextStyle(color: Colors.white),
                       ),
                     ]

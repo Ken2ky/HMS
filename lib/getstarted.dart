@@ -16,12 +16,12 @@ class GetStarted extends StatelessWidget {
         children: [
           Padding(
             padding: EdgeInsets.fromLTRB(0.25*w,0.06*h,0.25*w,0),
-            child: Image.asset('components/deadend1_w.png'),
+            child: Image.asset('components/deadend1_w.png',width: w*0.5,height: 0.034*h),
           ),
           Image.asset('components/hostel.jpeg',height: h*0.4, width: w*0.8),
           Padding(
               padding: EdgeInsets.fromLTRB(w*0.1, h*0.125, w*0.1, 0),
-              child: Text('Stress Free Hostel Life \nStarts Here',
+              child: Text('Stress Free Hostel Life \nStarts Here.',
               style: (TextStyle(color: Colors.white,fontSize: h*0.0325,fontFamily: 'Lato')),
               ),
             ),

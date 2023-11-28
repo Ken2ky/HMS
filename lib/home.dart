@@ -1,4 +1,5 @@
 import 'package:deadend/complaint.dart';
+import 'package:deadend/feedback.dart';
 import 'package:deadend/navbar.dart';
 import 'package:flutter/material.dart';
 
@@ -7,7 +8,7 @@ final List<Widget> animalissues = [];
 final List<Widget> pending = [];
 final List<Widget> completed = [];
 int current = 0;
-
+int who=0;
 final List<List<Widget>> filter = [issues, pending, completed];
 final List<String> status=['Open','InService','Closed'];
 
@@ -122,7 +123,7 @@ class Issue extends StatelessWidget {
         mainAxisAlignment: MainAxisAlignment.spaceBetween,
         children: [
         SizedBox(
-          width: 0.5*w,
+          width: 0.6*w,
           child: Card(
             elevation: 0,
           color: Color.fromRGBO(74, 73, 73, 1),
@@ -132,24 +133,25 @@ class Issue extends StatelessWidget {
               children: [
                   Align(
                     alignment: Alignment.centerLeft,
-                    child: Text(tit,
-                    style: TextStyle(fontSize: 18, color: Color.fromRGBO(241, 119, 67, 1),),
+                    child: Text(desc,
+                    style: TextStyle(fontSize: 15, color: Colors.white),
                     textAlign: TextAlign.left ,
                     softWrap: true,
                     ),
                   ),
                   Align(
                     alignment: Alignment.centerLeft,
-                    child: Text("\nRoom-$room",
-                    style: TextStyle(fontSize: 18, color: Colors.white),
+                    child: Text("\n$room",
+                    style: TextStyle(fontSize: 15, color: Color.fromRGBO(241, 119, 67, 1)),
                     textAlign: TextAlign.left ,
                     softWrap: true,
                     ),
                   ),
                   Align(
                     alignment: Alignment.centerLeft,
-                    child: Text("\n$desc",
-                    style: TextStyle(fontSize: 15, color: Colors.white,),
+                    child: Text("\n${DateTime.now().year}-${_twoDigits(DateTime.now().month)}-${_twoDigits(DateTime.now().day)}\n"
+        "${_twoDigits(DateTime.now().hour)}:${_twoDigits(DateTime.now().minute)}:${_twoDigits(DateTime.now().second)}",
+                    style: TextStyle(fontSize: 15, color: Colors.white,fontStyle: FontStyle.italic),
                     textAlign: TextAlign.left ,
                     softWrap: true,
                     ),
@@ -171,8 +173,13 @@ class Issue extends StatelessWidget {
         padding: EdgeInsets.fromLTRB(0, 8, 8, 8),
         child:  ElevatedButton(
           onPressed: (){
-            if(iss==2){
-
+            if(who==0 && iss==2){
+               Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const Feedbacks()));
+            }
+            if(who==1){
+              Navigator.push(context,
+                MaterialPageRoute(builder: (context) => const Feedbacks()));
             }
           },
           style: ButtonStyle(backgroundColor: MaterialStatePropertyAll(iss==0?Color.fromRGBO(221, 17, 85, 1):(iss==1)?Color.fromRGBO(151, 71, 255, 1):Color.fromRGBO(154, 227, 134, 1),
@@ -190,3 +197,4 @@ class Issue extends StatelessWidget {
   }
 }
 
+String _twoDigits(int n) => n.toString().padLeft(2, '0');
