@@ -1,6 +1,6 @@
 # deadend
 
-A new Flutter project.
+An mobile application that can be used to raise complaints faced by students in hostel
 
 ## Getting Started
 
